@@ -10,3 +10,4 @@ images/upload/*
 images/preview/*
 composer.lock
 data
+app/component/grid

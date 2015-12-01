@@ -15,9 +15,15 @@ class RouterFactory
 	 */
 	public static function createRouter()
 	{
-		$router = new RouteList;
-		$router[] = new Route('[<locale=cs cs|en>/]<presenter>/<action>[/<id>]', 'Homepage:default');
-		return $router;
+            $router = new RouteList();
+            
+            $router[] = $adminRouter = new RouteList('Admin');
+            $adminRouter[] = new Route('admin/<presenter>/<action>', 'Homepage:default');
+
+            $router[] = $frontRouter = new RouteList('Front');
+            
+            $frontRouter[] = new Route('[<locale=cs cs|en>/]<presenter>/<action>[/<id>]', 'Homepage:default');
+            return $router;
 	}
 
 }

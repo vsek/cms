@@ -1,0 +1,33 @@
+/*
+Styly adminu pro konkretni projekt
+*/
+
+tr.blue{
+    background-color: #8787FF;
+}
+tr.deactivated{
+    background-color: #FF9900;
+}
+tr.pink{
+    background-color: #ffc0cb;
+}
+tr.exist{
+    background-color: #FFDD00;
+}
+input.green, tr.green{
+    background-color: #4FE24F;
+}
+tr.changed, div.changed{
+    background-color: #FF5F5F;
+}
+tr.expire, tr.notApproval{
+    background-color: #ff0b0b;
+}
+a.deleteWeb, a.deleteWeb1{
+    position: relative;
+    top: -67px;
+    left: 400px;
+}
+a.deleteWeb1{
+    left: 170px;
+}

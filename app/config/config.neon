@@ -18,11 +18,35 @@ application:
 session:
 	expiration: 14 days
 
+nette:
+	database:
+		dsn: 'mysql:host=127.0.0.1;dbname=cms'
+		user: cms
+		password: 'ZvFPYuveYY4quueY'
+		options:
+			lazy: yes
+	mailer:
+		smtp: false
+		host: 'smtp.cesky-hosting.cz'
+		username: 'stodulka@webnolimit.cz'
+		password: 'ghjR35hkHj'
+		secure: 'ssl'
 
 services:
-	- App\Model\UserManager
-	- App\Forms\SignFormFactory
 	router: App\RouterFactory::createRouter
+	authenticator: App\AdminModule\Components\Authenticator
+	authorizator: App\AdminModule\Components\Authorizator
+
+	mailer: App\Email\Mailer
+
+	privileges: App\Model\Privilege
+	emailsLog: App\Model\EmailLog
+	emails: App\Model\Email
+	users: App\Model\User
+	permissions: App\Model\Permission
+	resources: App\Model\Resource
+	roles: App\Model\Role
+	settings: App\Model\Setting
 
 extensions:
 	translation: Kdyby\Translation\DI\TranslationExtension

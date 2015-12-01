@@ -1,0 +1,564 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(240,240,240);
+    font-family: 'Archivo Narrow', 'sans-serif';
+    min-width: 700px;
+    font-size: 14px;
+    height: 100%;
+}
+.hidden{
+    display: none;
+}
+div.clearfix{
+    clear: both;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+div.content{
+    text-align: center;
+    height: 79%;
+    width: 100%;
+    overflow-y: scroll;
+    position: fixed;
+}
+div.content.logged{
+    background-color: white;
+}
+h2{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Archivo Narrow', 'sans-serif';
+    color: black;
+    text-shadow:  0px 1px 0.01px white;
+    font-size: 24px;
+    text-align: left;
+}
+h3{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Archivo Narrow', 'sans-serif';
+    color: black;
+    text-shadow:  0px 1px 0.01px white;
+    font-size: 20px;
+    text-align: left;
+}
+p{
+    text-align: left;
+}
+div.content.logged h2{
+    margin-top: 40px;
+    float: left;
+}
+div.obsah{
+    float: left;
+    width: 80%;
+    text-align: left;
+}
+fieldset{
+    border: none;
+}
+
+/* HORNI LISTA */
+div.top-orange{
+    height: 4px;
+    width: 100%;
+    background-image: url('/images/admin/top-orange.png');
+    background-repeat: repeat-x;
+}
+div.top{
+    height: 46px;
+    width: 100%;
+    background-image: url('/images/admin/top-bg.png');
+    background-repeat: repeat-x;
+    position: relative;
+}
+div.top div.logo{
+    float: left;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+div.top div.login{
+    float: right;
+    height: 24px;
+    margin-top: 12px;
+    margin-right: 37px;
+}
+div.top div.login div.left{
+    float: left;
+    background-image: url(/images/admin/top-login-left.png);
+    height: 100%;
+    width: 11px;
+}
+div.top div.login div.middle{
+    float: left;
+    background-image: url(/images/admin/top-login-middle.png);
+    height: 100%;
+}
+div.top div.login div.middle span{
+    font-size: 14px;
+    color: #393939;
+    text-shadow:  0px 1px 0.01px white;
+    display: inline-block;
+    background-image: url('/images/admin/top-login-person.png');
+    background-repeat: no-repeat;
+    padding-left: 23px;
+    padding-right: 40px;
+    margin-top: 5px;
+}
+div.top div.login div.middle div.logout{
+    display: inline-block;
+    background-color: rgb(221,63,0);
+    height: 16px;
+    position: relative;
+    border-radius: 10px;
+    top: 1px;
+    background-image: url('/images/admin/top-login-logout.png');
+    background-repeat: no-repeat;
+    background-position: 7px center;
+    padding-left: 26px;
+    padding-right: 11px;
+    margin-right: -8px;
+    padding-top: 5px;
+}
+div.top div.login div.middle div.logout a{
+    color: white;
+    font-size: 14px;
+}
+
+/* PRIHLASOVACI FORMULAR */
+div.content div.login{
+    width: 242px;
+    background-color: white;
+    border: solid rgb(215,215,215) 1px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.03);
+    margin-top: 109px;
+    padding: 30px;
+}
+div.content div.login div.logo{
+    background-image: url('/images/admin/login-logo.png');
+    width: 143px;
+    height: 31px;
+    margin-bottom: 15px;
+}
+div.content div.login form input{
+    width: 200px;
+    height: 40px;
+    background-color: rgb(240,240,240);
+    border: solid rgb(210,210,210) 1px;
+    padding-left: 40px;
+    font-size: 16px;
+    color: #666666;
+    text-shadow:  0px 1px 0.01px white;
+}
+div.content div.login form input#frm-formLogin-email, div.login form input#frm-formForgotPassword-email{
+    background-image: url(/images/admin/login-person.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: solid rgb(231,231,231) 1px;
+}
+div.content div.login form input#frm-formLogin-password{
+    background-image: url(/images/admin/login-password.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: solid rgb(245,245,245) 1px;
+}
+div.forgotPassword{
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+div.forgotPassword a{
+    font-size: 14px;
+    color: #999999;
+}
+div.login form input#frm-formLogin-send, div.login form input#frm-formForgotPassword-send, div.login form input#frm-formGeneratePassword-send{
+    background: -webkit-linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* Standard syntax */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    text-shadow:  0px 1px 0.01px rgba(0,0,0,0.6);
+    width: 100%;
+    padding: 0px;
+}
+
+/* ZAPOMENUTE HESLO */
+div.login form input#frm-formForgotPassword-email, div.login form input#frm-formGeneratePassword-password, div.login form input#frm-formGeneratePassword-password1{
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: solid rgb(210,210,210) 1px;
+}
+
+/* PATICKA */
+div.footer{
+    height: 59px;
+    width: 100%;
+    background-color: rgb(60,60,60);
+    background-image: url('/images/admin/footer.png');
+    background-position: top;
+    background-repeat: repeat-x;
+    position: fixed;
+    bottom: 0px;
+}
+div.footer div.copywrite{
+    width: 222px;
+    margin-top: 20px;
+    color: white;
+    font-size: 12px;
+    padding-left: 20px;
+    float: left;
+}
+div.footer div.copywrite a{
+    color: white;
+    font-size: 12px;
+}
+div.footer div.technicSupport{
+    height: 100%;
+    width: 200px;
+    background: -webkit-linear-gradient(rgb(255,90,82), rgb(252,54,54)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(255,90,82), rgb(252,54,54)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(255,90,82), rgb(252,54,54)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(255,90,82), rgb(252,54,54)); /* Standard syntax */
+    float: left;    
+}
+div.footer div.technicSupport span{
+    display: inline-block;
+    background-image: url('/images/admin/footer-support.png');
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    padding-left: 46px;
+    height: 26px;
+    padding-top: 8px;
+    margin-top: 17px;
+    color: white;
+    font-size: 17px;
+}
+div.footer div.arrow{
+    background-image: url('/images/admin/footer-arrow.png');
+    height: 100%;
+    width: 16px;
+    float: left;
+}
+div.footer div.box{
+    height: 100%;
+    width: 200px;
+    background-image: url('/images/admin/footer-box.png');
+    float: left;    
+    background-repeat: repeat-x;
+}
+div.footer div.box span{
+    display: inline-block;
+    background-image: url('/images/admin/footer-phone.png');
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    padding-left: 46px;
+    height: 26px;
+    padding-top: 4px;
+    margin-top: 17px;
+    color: white;
+    font-size: 16px;
+}
+div.footer div.box span a{
+    color: white;
+    font-size: 16px;
+}
+div.footer div.box span.email{
+    background-image: url('/images/admin/footer-email.png');
+}
+div.footer div.boxArrow{
+    background-image: url('/images/admin/footer-arrow1.png');
+    height: 100%;
+    width: 17px;
+    float: left;
+}
+div.footer div.arrowLast{
+    background-image: url('/images/admin/footer-arrow-last.png');
+    height: 100%;
+    width: 16px;
+    float: left;
+}
+
+/* MENU */
+nav.menu{
+    display: block;
+    width: 15%;
+    float: left;
+    min-height: 100%;
+    height: 100%;
+    position: relative;
+}
+nav.menu ul{
+    display: block;
+    text-align: left;
+    padding: 0px;
+    min-height: 100%;
+    border-right: solid rgb(201,205,211) 1px;
+    width: 80%;
+    margin: 0px;
+    background-color: rgb(240,240,240);
+}
+nav.menu ul li{
+    display: block;
+    height: 41px;
+}
+nav.menu ul li a{
+    display: inline-block;
+    background-image: url('/images/admin/menu.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 28px;
+    font-size: 16px;
+    color: #656565;
+    text-shadow:  0px 1px 0.01px white;
+    padding-top: 13px;
+    border-top: solid rgb(199,199,199) 1px;
+    position: relative;
+}
+nav.menu ul li a:hover, nav.menu ul li a.active{
+    text-decoration: none;
+    color: #191919;
+    background-image: none;
+    background-color: white;
+}
+nav.menu ul li a span.item{
+    background-image: url('/images/admin/menu-default.png');
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    padding-left: 50px;
+}
+nav.menu ul li a span.arrow{
+    background-image: url('/images/admin/menu-arrow.png');
+    width: 17px;
+    height: 43px;
+    position: absolute;
+    right: -17px;
+    top: -1px;
+    display: none;
+}
+nav.menu ul li a:hover span.arrow, nav.menu ul li a.active span.arrow{
+    display: block;
+}
+
+/* SUBMENU */
+ul.submenu{
+    float: left;
+    display: block;
+    margin-top: 40px;
+}
+ul.submenu li{
+    display: inline-block;
+}
+ul.submenu li a{
+    display: inline-block;
+    border: solid rgb(209,209,209) 1px;
+    font-size: 14px;
+    color: #393939;
+    font-size: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(rgb(255, 255, 255), rgb(235, 237, 241));
+    -webkit-box-shadow: 0px 0px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow:    0px 0px 0px rgba(255, 255, 255, 1);
+    box-shadow:         0px 0px 0px rgba(255, 255, 255, 1);
+}
+
+/* HLAVNI TABULKA VYPISU */
+table.grid{
+    width: 100%;
+    border: solid rgb(209,209,209) 1px;
+    border-radius: 3px;
+    border-spacing: 0px;
+    border-collapse: separate;
+    text-align: left;
+}
+table.grid th{
+    height: 35px;
+    font-size: 14px;
+    color: #393939;
+    font-size: 14px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(rgb(255, 255, 255), rgb(235, 237, 241));
+    -webkit-box-shadow: 0px 0px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow:    0px 0px 0px rgba(255, 255, 255, 1);
+    box-shadow:         0px 0px 0px rgba(255, 255, 255, 1);
+    padding-left: 20px;
+}
+table.grid th.ordering, table.grid td.ordering{
+    width: 115px;
+    text-align: center;
+}
+table.grid th.ordering{
+    
+}
+table.grid td.ordering a{
+    display: none;
+}
+table.grid td.ordering:hover a{
+    display: inline-block;
+}
+table.grid a{
+    font-size: 14px;
+    color: #393939;
+    font-size: 14px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+}
+table.grid td{
+    border-top: solid white 1px;
+    border-bottom: solid rgb(182,182,182) 1px;
+    height: 32px;
+    padding-left: 20px;
+}
+table.grid td.first{
+    font-size: 14px;
+}
+table.grid tr.last td{
+    border-bottom: solid white 1px;
+}
+table.grid tr:hover td{
+    border-top: solid rgb(246,126,62) 1px;
+    border-bottom: solid rgb(246,126,62) 1px;
+    background-color: rgb(250,221,184);
+}
+table.grid td img{
+    vertical-align: middle;
+}
+
+/* STRANKOVANI */
+div.paginator span.prev, div.paginator a.prev{
+    background-image: url('/images/admin/pagging-prev.png');
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    padding: 0px;
+    border: none;
+    margin-right: 10px;
+}
+div.paginator span.next, div.paginator a.next{
+    background-image: url('/images/admin/pagging-next.png');
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    padding: 0px;
+    border: none;
+    margin-left: 10px;
+}
+div.paginator span.page, div.paginator a.page{
+    display: inline-block;
+}
+div.paginator span.current{
+    color: rgb(200,25,103);
+}
+div.paginator{
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* FORMULAR */
+form{
+    text-align: left;
+}
+form input[type="text"], form input[type="password"]{
+    width: 300px;
+    border: solid rgb(211,211,211) 1px;
+    border-radius: 3px;
+    height: 36px;
+    color: #181818;
+    padding-left: 13px;
+}
+form input[type="submit"], a.button{
+    width: auto;
+    background: -webkit-linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(255,91,83), rgb(252,55,54)); /* Standard syntax */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    text-shadow:  0px 1px 0.01px rgba(0,0,0,0.6);
+    padding: 0px;
+    height: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 20px;
+}
+a.button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+form textarea{
+    width: 300px;
+    border: solid rgb(211,211,211) 1px;
+    border-radius: 3px;
+    color: #181818;
+    padding-left: 13px;
+    height: 100px;
+}
+
+/* FORMULAROVE HLASKY */
+.form-error-message{
+    background: transparent url(/images/error-icon.png) no-repeat scroll 0 0;
+    color: #BB0000;
+    font-size: 14px;
+    margin-left: 5px;
+    min-height: 20px;
+    min-width: 20px;
+    padding-left: 20px;
+}
+.form-control-error{
+    background-color: #FFEEEE;
+    border-color: #BB0000;
+}
+
+
+/* OBRAZKY */
+div.gallery div.image{
+    float: left;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+div.login .chosen-container{
+    float: left;
+    margin-right: 30px;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+div.ui-datepicker{
+    z-index: 5000 !important;
+}
