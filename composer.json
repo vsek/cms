@@ -33,7 +33,8 @@
 		"kdyby/translation": "^2.2",
                 "vsek/grid": "1",
                 "vsek/base": "1",
-                "vsek/mailer": "1"
+                "vsek/mailer": "1",
+                "vsek/form-extension": "1"
 	},
 	"require-dev": {
 		"nette/tester": "~1.3"
