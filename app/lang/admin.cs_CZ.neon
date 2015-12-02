@@ -115,3 +115,5 @@ grid:
     realyDeleteItem: "Opravdu chcete trvale smazat tuto položku?"
     realyDelete: "Opravdu smazat"
     cancel: "Zrušit"
+    paggindDisableForTree: "Pro stromový výpis je stránkování vypnuto"
+    changeOrdering: "Změnit pořadí"
