@@ -3,6 +3,18 @@
 # https://nette.org/security-warning
 #
 parameters:
+	scriptLoader:
+		enable: true
+		css:
+			default:
+			critical:
+
+		js:
+
+		css_mobile:
+			critical:
+			default:
+		js_mobile:
 
 php:
 	date.timezone: Europe/Prague
@@ -32,11 +44,17 @@ nette:
 		secure: 'ssl'
 
 services:
-	router: App\RouterFactory::createRouter
+	routerFactory: App\RouterFactory
+	router: @routerFactory::createRouter()
+
 	authenticator: App\AdminModule\Components\Authenticator
 	authorizator: App\AdminModule\Components\Authorizator
 
+	- App\ScriptLoader\IScriptLoaderFactory
+
 	mailer: App\Email\Mailer
+
+	news: App\Model\Module\News
 
 	privileges: App\Model\Privilege
 	emailsLog: App\Model\EmailLog
@@ -53,3 +71,7 @@ extensions:
 translation:
 	default: cs
 	fallback: [cs_CZ, cs]
+
+latte:
+	macros:
+		- App\MacroSet::install

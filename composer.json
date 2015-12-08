@@ -34,7 +34,9 @@
                 "vsek/grid": "~1",
                 "vsek/base": "~1",
                 "vsek/mailer": "~1",
-                "vsek/form-extension": "~1"
+                "vsek/form-extension": "~1",
+                "vsek/script-loader": "~1",
+                "vsek/page": "~1"
 	},
 	"require-dev": {
 		"nette/tester": "~1.3"

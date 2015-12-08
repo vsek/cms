@@ -1,0 +1,54 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+        <meta name="description" content="{block description|striptags|replace:'"', '&quot'}{/block}">
+        <meta name="keywords" content="{block keywords|striptags|replace:'"', '&quot'}{/block}">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+        
+	<title>{block title|striptags|replace:'"', '&quot'}{/block}</title>
+
+        {control scriptLoader:css, true}
+        {control scriptLoader:css, true, $presenter->getNameSimple()}
+        {control scriptLoader:js}
+        
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+        
+	{block head}{/block}
+        
+        <meta name="copyright" content="WebNoLimit.cz" />
+    	<meta name="author" content="WebNoLimit.cz" />
+
+        {if !is_null($presenter->getParam('_fid'))}
+            <link rel="canonical" href="{link //this}" />
+        {else}
+            {block #canonical}{/block}
+        {/if}
+        
+</head>
+<body>
+    {include #content}
+    {control scriptLoader:css}
+    
+    {if !empty($flashes)}
+        <script type="text/javascript">
+            {foreach $flashes as $flash}
+                alert({$flash->message});
+            {/foreach}
+        </script>
+    {/if}
+    
+    {* google analytics *}
+    {if !is_null($presenter->getSetting('google_analytics'))}
+        {!$presenter->getSetting('google_analytics')}
+    {/if}
+</body>
+</html>

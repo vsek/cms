@@ -40,12 +40,12 @@ CREATE TABLE `privilege` (
   `system_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO `privilege` (`id`, `name`, `system_name`) VALUES
-(1, 'Zobrazení', 'default'),
+(1, 'Zobrazenï¿½', 'default'),
 (2, 'Editace', 'edit'),
-(3, 'Mazání', 'delete'),
-(4, 'Vytváøení', 'new'),
-(5, 'Oprávnìní', 'permission'),
-(6, 'Nastavit práva', 'set'),
+(3, 'Mazï¿½nï¿½', 'delete'),
+(4, 'Vytvï¿½ï¿½enï¿½', 'new'),
+(5, 'Oprï¿½vnï¿½nï¿½', 'permission'),
+(6, 'Nastavit prï¿½va', 'set'),
 (7, 'Detail', 'detail'),
 (8, 'Log', 'log');
 CREATE TABLE `resource` (
@@ -57,9 +57,9 @@ INSERT INTO `resource` (`id`, `name`, `system_name`) VALUES
 (2, 'Privilegia', 'privilege'),
 (3, 'Zdroje', 'resource'),
 (4, 'Role', 'role'),
-(6, 'Stránky', 'page'),
-(12, 'Uživatelé', 'user'),
-(13, 'Nastavení', 'setting'),
+(6, 'Strï¿½nky', 'page'),
+(12, 'Uï¿½ivatelï¿½', 'user'),
+(13, 'Nastavenï¿½', 'setting'),
 (14, 'Email', 'email');
 CREATE TABLE `resource_privilege` (
   `resource_id` int(11) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE `user` (
   `new_password_hash` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO `user` (`id`, `email`, `name`, `surname`, `created`, `password`, `hash`, `role_id`, `verified_email`, `new_password_hash`) VALUES
-(1, 'vsek@seznam.cz', 'Václav', 'Stodùlka', '2014-04-09 15:15:51', '72e0ea0d711ba3cb1d2755193095f0fb', NULL, 2, NULL, NULL);
+(1, 'vsek@seznam.cz', 'Vï¿½clav', 'Stodï¿½lka', '2014-04-09 15:15:51', '72e0ea0d711ba3cb1d2755193095f0fb', NULL, 2, NULL, NULL);
 ALTER TABLE `email`
   ADD PRIMARY KEY (`id`);
   ALTER TABLE `email_log`
@@ -180,3 +180,30 @@ ALTER TABLE `resource_privilege`
   ADD CONSTRAINT `resource_privilege_ibfk_2` FOREIGN KEY (`privilege_id`) REFERENCES `privilege` (`id`) ON DELETE CASCADE;
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE;
+
+#--------------------------------------------- 1.0.6 ---------------------------------------
+CREATE TABLE `page` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `position` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `keywords` varchar(255) DEFAULT NULL,
+  `description` text,
+  `is_homepage` enum('yes','no') NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `in_menu` enum('yes','no') NOT NULL DEFAULT 'yes',
+  `parent_id` int(11) DEFAULT NULL,
+  `module` varchar(255) DEFAULT NULL,
+  `h1` varchar(255) DEFAULT NULL,
+  `external` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `page` (`id`, `name`, `text`, `position`, `title`, `keywords`, `description`, `is_homepage`, `link`, `in_menu`, `parent_id`, `module`, `h1`, `external`) VALUES
+(1, 'Home', '<p>Homepage</p>\n', 1, NULL, NULL, NULL, 'yes', 'home', 'yes', NULL, NULL, NULL, 0);
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parent_id` (`parent_id`);
+ALTER TABLE `page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `page`
+  ADD CONSTRAINT `page_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `page` (`id`) ON DELETE CASCADE;

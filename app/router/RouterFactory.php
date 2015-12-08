@@ -13,7 +13,7 @@ class RouterFactory
 	/**
 	 * @return Nette\Application\IRouter
 	 */
-	public static function createRouter()
+	public function createRouter()
 	{
             $router = new RouteList();
             
@@ -22,7 +22,24 @@ class RouterFactory
 
             $router[] = $frontRouter = new RouteList('Front');
             
-            $frontRouter[] = new Route('[<locale=cs cs|en>/]<presenter>/<action>[/<id>]', 'Homepage:default');
+            //obrazky
+            $frontRouter[] = new Route('[<locale=cs cs|en>/]<presenter image>/<action preview>/', array(
+                'presenter' => 'Homepage',
+                'action' => 'default',
+            ));
+            
+            //stranky
+            $frontRouter[] = new Route('[<locale=cs cs|en>/]<url .*>/', array(
+                'presenter' => 'Page',
+                'action' => 'default',
+            ));
+            
+            //vychozi router
+            $frontRouter[] = new Route('[<locale=cs cs|en>/]<presenter>/<action>/[<id>/]', array(
+                'presenter' => 'Homepage',
+                'action' => 'default',
+            ));
+            
             return $router;
 	}
 

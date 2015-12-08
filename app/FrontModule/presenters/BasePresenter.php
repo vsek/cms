@@ -25,6 +25,32 @@ abstract class BasePresenter extends \App\Presenters\BasePresenter
     public $fullSite = 0;
     
     /**
+     *
+     * @var \App\ScriptLoader\ScriptLoaderFactory
+     */
+    private $scriptLoaderFactory;
+    
+    /**
+    * @var Nette\Caching\IStorage
+    * @inject
+    */
+    public $storage;
+    
+    /**
+     * 
+     * @param \App\ScriptLoader\IScriptLoaderFactory $factory
+     */
+    public function injectScriptLoaderFactory(\App\ScriptLoader\IScriptLoaderFactory $factory)
+    {
+        $this->scriptLoaderFactory = $factory;
+    }
+    
+    protected function createComponentScriptLoader()
+    {
+        return $this->scriptLoaderFactory->create();
+    }
+    
+    /**
      * Detekuje jestli se jedna o mobilni nebo tablet verzi
      * @return type boolean
      */
