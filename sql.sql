@@ -40,12 +40,12 @@ CREATE TABLE `privilege` (
   `system_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO `privilege` (`id`, `name`, `system_name`) VALUES
-(1, 'Zobrazen�', 'default'),
+(1, 'Zobrazení', 'default'),
 (2, 'Editace', 'edit'),
-(3, 'Maz�n�', 'delete'),
-(4, 'Vytv��en�', 'new'),
-(5, 'Opr�vn�n�', 'permission'),
-(6, 'Nastavit pr�va', 'set'),
+(3, 'Mazání', 'delete'),
+(4, 'Vytvoření', 'new'),
+(5, 'Oprávnění', 'permission'),
+(6, 'Nastavit práva', 'set'),
 (7, 'Detail', 'detail'),
 (8, 'Log', 'log');
 CREATE TABLE `resource` (
@@ -57,9 +57,9 @@ INSERT INTO `resource` (`id`, `name`, `system_name`) VALUES
 (2, 'Privilegia', 'privilege'),
 (3, 'Zdroje', 'resource'),
 (4, 'Role', 'role'),
-(6, 'Str�nky', 'page'),
-(12, 'U�ivatel�', 'user'),
-(13, 'Nastaven�', 'setting'),
+(6, 'Stránky', 'page'),
+(12, 'Uživatelé', 'user'),
+(13, 'Nastavení', 'setting'),
 (14, 'Email', 'email');
 CREATE TABLE `resource_privilege` (
   `resource_id` int(11) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE `user` (
   `new_password_hash` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO `user` (`id`, `email`, `name`, `surname`, `created`, `password`, `hash`, `role_id`, `verified_email`, `new_password_hash`) VALUES
-(1, 'vsek@seznam.cz', 'V�clav', 'Stod�lka', '2014-04-09 15:15:51', '72e0ea0d711ba3cb1d2755193095f0fb', NULL, 2, NULL, NULL);
+(1, 'vsek@seznam.cz', 'Václav', 'Stodůlka', '2014-04-09 15:15:51', '72e0ea0d711ba3cb1d2755193095f0fb', NULL, 2, NULL, NULL);
 ALTER TABLE `email`
   ADD PRIMARY KEY (`id`);
   ALTER TABLE `email_log`
@@ -207,3 +207,16 @@ ALTER TABLE `page`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 ALTER TABLE `page`
   ADD CONSTRAINT `page_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `page` (`id`) ON DELETE CASCADE;
+CREATE TABLE `language` ( `id` INT NOT NULL AUTO_INCREMENT ,  `name` VARCHAR(255) NOT NULL ,  `shortcut` INT NOT NULL ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;
+ALTER TABLE `language` CHANGE `shortcut` `shortcut` VARCHAR(255) NOT NULL;
+INSERT INTO `language` (`id`, `name`, `shortcut`) VALUES (NULL, 'Čeština', 'CZ');
+ALTER TABLE `page` ADD `language_id` INT NOT NULL AFTER `external`;
+UPDATE `page` SET `language_id` = 1;
+ALTER TABLE `page` ADD INDEX(`language_id`);
+ALTER TABLE `page` ADD FOREIGN KEY (`language_id`) REFERENCES `language`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `language` ADD `link` VARCHAR(255) NOT NULL AFTER `shortcut`;
+UPDATE `language` SET `link` = 'cs' WHERE `language`.`id` = 1;
+ALTER TABLE `setting` ADD `language_id` INT NOT NULL AFTER `twitter_link`;
+UPDATE `setting` SET `language_id` = 1;
+ALTER TABLE `setting` ADD INDEX(`language_id`);
+ALTER TABLE `setting` ADD FOREIGN KEY (`language_id`) REFERENCES `language`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;

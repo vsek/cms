@@ -54,8 +54,8 @@ services:
 
 	mailer: App\Email\Mailer
 
-	news: App\Model\Module\News
-
+	languages: App\Model\Module\Language
+	pages: App\Model\Module\Page
 	privileges: App\Model\Privilege
 	emailsLog: App\Model\EmailLog
 	emails: App\Model\Email
@@ -67,10 +67,6 @@ services:
 
 extensions:
 	translation: Kdyby\Translation\DI\TranslationExtension
-
-translation:
-	default: cs
-	fallback: [cs_CZ, cs]
 
 latte:
 	macros:
