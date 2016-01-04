@@ -566,3 +566,6 @@ div.ui-datepicker{
 select.webLanguage{
     width: 60px;
 }
+a.button1.delete{
+    margin-left: 20px;
+}

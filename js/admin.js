@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    //smazani obrazku/souboru uploadifive
+    $('table.form a.delete').click(function(){
+        $(this).parent().find('input.uploadifive').attr('value', '');
+        $(this).parent().find('.deafultValue').hide();
+        $(this).hide();
+    });
+    
     $('select').chosen();
     
     //zmena jazyka
