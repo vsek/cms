@@ -71,3 +71,5 @@ extensions:
 latte:
 	macros:
 		- App\MacroSet::install
+tracy:
+    email: vsek@seznam.cz

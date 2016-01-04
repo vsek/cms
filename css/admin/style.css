@@ -562,3 +562,7 @@ div.login .chosen-container{
 div.ui-datepicker{
     z-index: 5000 !important;
 }
+
+select.webLanguage{
+    width: 60px;
+}

@@ -1,6 +1,11 @@
 $(document).ready(function(){
     $('select').chosen();
     
+    //zmena jazyka
+    $('select.webLanguage').change(function(){
+        window.location.href = $(this).val();
+    });
+    
     //inzerat - editace
     if($('select.locationCountry').length && $('select.locationDirectory').val() != 'directory'){
         $("select.locationCity").removeOption(/./);
