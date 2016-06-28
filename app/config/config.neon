@@ -29,19 +29,18 @@ application:
 session:
 	expiration: 14 days
 
-nette:
-	database:
-		dsn: 'mysql:host=127.0.0.1;dbname=cms'
-		user: cms
-		password: 'ZvFPYuveYY4quueY'
-		options:
-			lazy: yes
-	mailer:
-		smtp: false
-		host: 'smtp.cesky-hosting.cz'
-		username: 'stodulka@webnolimit.cz'
-		password: 'ghjR35hkHj'
-		secure: 'ssl'
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=cms'
+	user: cms
+	password: 'ZvFPYuveYY4quueY'
+	options:
+		lazy: yes
+mail:
+	smtp: false
+	host: 'smtp.cesky-hosting.cz'
+	username: 'stodulka@webnolimit.cz'
+	password: 'ghjR35hkHj'
+	secure: 'ssl'
 
 services:
 	routerFactory: App\RouterFactory
