@@ -15,6 +15,7 @@ if(!is_dir($uploadDir)){
 $verifyToken = md5('unique_salt' . $_POST['timestamp']);
 
 if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+        include_once __DIR__ . '/../../vendor/nette/utils/src/Utils/StaticClass.php';
         include_once __DIR__ . '/../../vendor/nette/utils/src/Utils/Strings.php';
     
 	$tempFile   = $_FILES['Filedata']['tmp_name'];

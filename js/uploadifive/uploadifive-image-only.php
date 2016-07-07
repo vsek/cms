@@ -44,6 +44,7 @@ if (!empty($_FILES)) {
 
 	$fileData = $_FILES['Filedata'];
 
+        include_once __DIR__ . '/../../vendor/nette/utils/src/Utils/StaticClass.php';
         include_once __DIR__ . '/../../vendor/nette/utils/src/Utils/Strings.php';
         
 	if ($fileData) {
