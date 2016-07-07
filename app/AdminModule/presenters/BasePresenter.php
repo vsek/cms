@@ -6,6 +6,5 @@ namespace App\AdminModule\Presenters;
  *
  * @author vsek
  */
-class BasePresenter extends BasePresenterM{
-    //put your code here
+class BasePresenter extends \App\Presenters\BasePresenter{
 }
