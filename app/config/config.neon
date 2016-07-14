@@ -46,7 +46,7 @@ services:
 	routerFactory: App\RouterFactory
 	router: @routerFactory::createRouter()
 
-	authenticator: App\AdminModule\Components\Authenticator
+	- App\AdminModule\Components\Authenticator
 	authorizator: App\AdminModule\Components\Authorizator
 
 	- App\ScriptLoader\IScriptLoaderFactory
