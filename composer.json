@@ -31,6 +31,7 @@
 		"latte/latte": "^2",
 		"tracy/tracy": "^2",
 		"kdyby/translation": "^2",
+                "kdyby/console": "^2",
                 "vsek/grid": "~1",
                 "vsek/base": "~1",
                 "vsek/mailer": "~1",

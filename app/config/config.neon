@@ -53,6 +53,8 @@ services:
 
 	mailer: App\Email\Mailer
 
+	translatesLocale: App\Model\Module\TranslateLocale
+	translates: App\Model\Module\Translate
 	languages: App\Model\Module\Language
 	pages: App\Model\Module\Page
 	privileges: App\Model\Privilege
@@ -66,9 +68,19 @@ services:
 
 extensions:
 	translation: Kdyby\Translation\DI\TranslationExtension
+	console: Kdyby\Console\DI\ConsoleExtension
 
 latte:
 	macros:
 		- App\MacroSet::install
 tracy:
     email: vsek@seznam.cz
+
+console:
+	url: http://freewebsite:5050/
+	commands:
+		- App\Console\generateTranslation
+
+translation:
+	default: cs
+	fallback: [cs_CZ]
