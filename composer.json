@@ -38,7 +38,8 @@
                 "vsek/form-extension": "~1",
                 "vsek/script-loader": "~1",
                 "vsek/page": "~1",
-                "vsek/language": "~1"
+                "vsek/language": "~1",
+                "vsek/translate": "~1"
 	},
 	"require-dev": {
 		"nette/tester": "~1.3"

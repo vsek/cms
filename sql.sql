@@ -226,18 +226,23 @@ CREATE TABLE `translate` (
   `id` int(11) NOT NULL,
   `text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `translate`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `translate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 CREATE TABLE `translate_locale` (
   `id` int(11) NOT NULL,
   `translate_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `translate` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE `translate`
-  ADD PRIMARY KEY (`id`);
 ALTER TABLE `translate_locale`
   ADD PRIMARY KEY (`id`),
   ADD KEY `translate_id` (`translate_id`),
   ADD KEY `language_id` (`language_id`);
 ALTER TABLE `translate_locale`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `translate_locale`
   ADD CONSTRAINT `translate_locale_ibfk_1` FOREIGN KEY (`translate_id`) REFERENCES `translate` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `translate_locale_ibfk_2` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`) ON DELETE CASCADE;
+UPDATE `language` SET `translate_locale` = 'cs_CZ' WHERE `language`.`id` = 1;
