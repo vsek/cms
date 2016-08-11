@@ -81,7 +81,7 @@ abstract class BasePresenter extends \App\Presenters\BasePresenter
         
         $this->template->isMobile = $this->isMobile();
         
-        $this->template->registerHelper('externalUrl', function ($s) {
+        $this->template->getLatte()->addFilter('externalUrl', function ($s) {
             if(!Nette\Utils\Strings::startsWith($s, 'http://') && !Nette\Utils\Strings::startsWith($s, 'https://')){
                 $s = 'http://' . $s;
             }

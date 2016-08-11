@@ -48,7 +48,7 @@
     
     {* google analytics *}
     {if !is_null($presenter->getSetting('google_analytics'))}
-        {!$presenter->getSetting('google_analytics')}
+        {$presenter->getSetting('google_analytics')|noescape}
     {/if}
 </body>
 </html>
