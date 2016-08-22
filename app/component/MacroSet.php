@@ -22,7 +22,7 @@ class MacroSet extends \Latte\Macros\MacroSet{
             ->write('echo %escape(\App\MacroSet::getSrc($_presenter, %node.word, %node.array?))');
     }
     
-    public static function getSrc(FrontModule\Presenters\BasePresenter $presenter, $image, $param){
+    public static function getSrc(Presenters\BasePresenter $presenter, $image, $param){
         $width = $height = null;
         $sharpen = false;
         $exact = true;
