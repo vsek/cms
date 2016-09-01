@@ -479,7 +479,7 @@ div.paginator{
 form{
     text-align: left;
 }
-form input[type="text"], form input[type="password"]{
+form input[type="text"], form input[type="password"], form input[type="number"]{
     width: 300px;
     border: solid rgb(211,211,211) 1px;
     border-radius: 3px;
