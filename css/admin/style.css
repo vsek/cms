@@ -507,6 +507,8 @@ form input[type="submit"], a.button{
 a.button{
     padding-top: 10px;
     padding-bottom: 10px;
+    display: inline-block;
+    height: auto;
 }
 form textarea{
     width: 300px;
