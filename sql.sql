@@ -220,7 +220,7 @@ ALTER TABLE `setting` ADD `language_id` INT NOT NULL AFTER `twitter_link`;
 UPDATE `setting` SET `language_id` = 1;
 ALTER TABLE `setting` ADD INDEX(`language_id`);
 ALTER TABLE `setting` ADD FOREIGN KEY (`language_id`) REFERENCES `language`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-ALTER TABLE `language` ADD `translate_locale` VARCHAR(255) NOT NULL AFTER `locale`;
+ALTER TABLE `language` ADD `translate_locale` VARCHAR(255) NOT NULL AFTER `link`;
 INSERT INTO `privilege` (`id`, `name`, `system_name`) VALUES (NULL, 'Přeložit', 'translate');
 CREATE TABLE `translate` (
   `id` int(11) NOT NULL,
