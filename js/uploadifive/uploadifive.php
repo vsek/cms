@@ -5,7 +5,7 @@ Copyright (c) 2012 Reactive Apps, Ronnie Garcia
 */
 
 // Set the uplaod directory
-$uploadDir = __DIR__ . '/../../images/upload/' . substr($_POST['timestamp'], 0, 4) . '/';
+$uploadDir = __DIR__ . '/../../images/file/' . substr($_POST['timestamp'], 0, 4) . '/';
 if(!is_dir($uploadDir)){
     mkdir($uploadDir);
     chmod($uploadDir, 0777);
