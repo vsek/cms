@@ -57,8 +57,8 @@ class ImagePresenter extends BasePresenter{
             if($sharpen){
                 $image->sharpen();
             }
-            $image->save($this->context->parameters['wwwDir'] . '/images/preview/' . $prefixDir . '/' . $previewName, 10, Image::PNG);
-            $image->send(Image::PNG);
+            $image->save($this->context->parameters['wwwDir'] . '/images/preview/' . $prefixDir . '/' . $previewName, 100, Image::JPEG);
+            $image->send(Image::JPEG);
         }
         $this->terminate();
     }
