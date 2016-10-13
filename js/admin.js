@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    //formular date
+    $('input.jqueryuiDate').each(function(){
+        $(this).datepicker({
+            dateFormat: $(this).attr('dateFormat')
+        });
+    });
+    
     //smazani obrazku/souboru uploadifive
     $('table.form a.delete').click(function(){
         $(this).parent().find('input.uploadifive').attr('value', '');
