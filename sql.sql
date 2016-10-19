@@ -247,7 +247,7 @@ ALTER TABLE `translate_locale`
   ADD CONSTRAINT `translate_locale_ibfk_2` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`) ON DELETE CASCADE;
 UPDATE `language` SET `translate_locale` = 'cs_CZ' WHERE `language`.`id` = 1;
 
-#----------------------------------
+#--------------------------------------------- 1.0.11 ---------------------------------------
 ALTER TABLE `setting` ADD `language_id` INT NOT NULL DEFAULT '1' AFTER `twitter_link`;
 ALTER TABLE `setting` ADD INDEX(`language_id`);
 ALTER TABLE `setting` ADD FOREIGN KEY (`language_id`) REFERENCES `language`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
