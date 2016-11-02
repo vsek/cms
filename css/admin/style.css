@@ -382,6 +382,9 @@ ul.submenu li a{
     -moz-box-shadow:    0px 0px 0px rgba(255, 255, 255, 1);
     box-shadow:         0px 0px 0px rgba(255, 255, 255, 1);
 }
+ul.submenu li a.active{
+    text-decoration: underline;
+}
 
 /* HLAVNI TABULKA VYPISU */
 table.grid{
