@@ -82,5 +82,4 @@ console:
 		- App\Console\generateTranslation
 
 translation:
-	default: cs
-	fallback: [cs_CZ]
+	fallback: [cs]
