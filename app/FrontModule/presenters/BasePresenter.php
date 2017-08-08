@@ -5,6 +5,8 @@ namespace App\FrontModule\Presenters;
 use Nette,
     \App\FrontModule\Form;
 use \Mobile_Detect;
+use Tracy\Debugger;
+
 /**
  * Base presenter for all application presenters.
  */
@@ -95,7 +97,7 @@ abstract class BasePresenter extends \App\Presenters\BasePresenter
     
     public function startup() {
         parent::startup();
-        
+
         if($this->isMobile()){
             $this->setLayout('layout.mobile');
         }

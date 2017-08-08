@@ -2,26 +2,29 @@
 
 namespace App\Presenters;
 
-use Nette;
+use App\Model\Setting;
+use App\Translate\Translator;
+use Nette\Application\UI\Presenter;
+use Nette\Database\Table\ActiveRow;
 
 
 /**
  * Base presenter for all application presenters.
  */
-abstract class BasePresenter extends Nette\Application\UI\Presenter
+abstract class BasePresenter extends Presenter
 {
     /** @persistent */
     public $locale;
 
-    /** @var \Kdyby\Translation\Translator @inject */
+    /** @var Translator @inject */
     public $translator;
     
-    /** @var \App\Model\Setting @inject */
+    /** @var Setting @inject */
     public $settings;
     
     /**
      *
-     * @var \Nette\Database\Table\ActiveRow
+     * @var ActiveRow
      */
     private $setting = null;
     

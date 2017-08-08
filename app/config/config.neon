@@ -67,7 +67,7 @@ services:
 	settings: App\Model\Setting
 
 extensions:
-	translation: Kdyby\Translation\DI\TranslationExtension
+	translation: App\Translate\DI\TranslationExtension
 	console: Kdyby\Console\DI\ConsoleExtension
 
 latte:
