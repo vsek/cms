@@ -10,6 +10,11 @@
 	RewriteEngine On
 	# RewriteBase /
 
+	# Redirect non-www to www - jen na ostre verzi
+    RewriteCond %{HTTP_HOST} !^www\.(.*)
+    RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+
 	# prevents files starting with dot to be viewed by browser
 	RewriteRule /\.|^\. - [F]
 
