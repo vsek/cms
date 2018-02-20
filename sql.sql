@@ -246,3 +246,4 @@ ALTER TABLE `translate_locale`
   ADD CONSTRAINT `translate_locale_ibfk_1` FOREIGN KEY (`translate_id`) REFERENCES `translate` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `translate_locale_ibfk_2` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`) ON DELETE CASCADE;
 UPDATE `language` SET `translate_locale` = 'cs_CZ' WHERE `language`.`id` = 1;
+UPDATE `language` SET `translate_locale` = 'cs' WHERE `language`.`id` = 1;

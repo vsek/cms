@@ -13,7 +13,7 @@ use Kdyby\Translation\CatalogueCompiler;
 use Kdyby\Translation\FallbackResolver;
 use Kdyby\Translation\IResourceLoader;
 use Kdyby\Translation\IUserLocaleResolver;
-use Symfony\Component\Translation\MessageSelector;
+use Symfony\Component\Translation\Formatter\MessageFormatter;
 
 class Translator extends \Kdyby\Translation\Translator{
     /**
@@ -28,8 +28,8 @@ class Translator extends \Kdyby\Translation\Translator{
      */
     private $languages;
 
-    public function __construct(IUserLocaleResolver $localeResolver, MessageSelector $selector, CatalogueCompiler $catalogueCompiler, FallbackResolver $fallbackResolver, IResourceLoader $loader, Language $languages) {
-        parent::__construct($localeResolver, $selector, $catalogueCompiler, $fallbackResolver, $loader);
+    public function __construct(IUserLocaleResolver $localeResolver, MessageFormatter $formatter, CatalogueCompiler $catalogueCompiler, FallbackResolver $fallbackResolver, IResourceLoader $loader, Language $languages) {
+        parent::__construct($localeResolver, $formatter, $catalogueCompiler, $fallbackResolver, $loader);
         $this->languages = $languages;
     }
 

@@ -14,7 +14,7 @@
 	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
         "minimum-stability": "RC",
 	"require": {
-		"php": ">= 5.3.7",
+		"php": ">= 5.7.1",
 		"nette/application": "^2",
 		"nette/bootstrap": "^2",
 		"nette/caching": "^2",

@@ -66,6 +66,9 @@ services:
 	roles: App\Model\Role
 	settings: App\Model\Setting
 
+	- App\Console\generateTranslationCommnad
+	- Symfony\Component\Translation\Formatter\MessageFormatter
+
 extensions:
 	translation: App\Translate\DI\TranslationExtension
 	console: Kdyby\Console\DI\ConsoleExtension
@@ -78,8 +81,10 @@ tracy:
 
 console:
 	url: http://freewebsite:5050/
-	commands:
-		- App\Console\generateTranslation
 
 translation:
 	fallback: [cs]
+
+decorator:
+	Symfony\Component\Console\Command\Command:
+		tags: [kdyby.console.command]

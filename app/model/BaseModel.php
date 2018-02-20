@@ -1,21 +1,24 @@
 <?php
 
 namespace App\Model;
+use Nette\Database\Context;
+use Nette\SmartObject;
 
 /**
  * Description of BaseModel
  *
  * @author Vsek
  */
-class BaseModel extends \Nette\Object{
-    
+class BaseModel{
+    use SmartObject;
+
     /**
      *
-     * @var \Nette\Database\Context 
+     * @var Context
      */
     public $database;
     
-    function __construct(\Nette\Database\Context $database) {
+    function __construct(Context $database) {
         $this->database = $database;
     }
 }
