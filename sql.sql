@@ -247,3 +247,6 @@ ALTER TABLE `translate_locale`
   ADD CONSTRAINT `translate_locale_ibfk_2` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`) ON DELETE CASCADE;
 UPDATE `language` SET `translate_locale` = 'cs_CZ' WHERE `language`.`id` = 1;
 UPDATE `language` SET `translate_locale` = 'cs' WHERE `language`.`id` = 1;
+ALTER TABLE `email` ADD `language_id` INT NOT NULL AFTER `subject`;
+ALTER TABLE `email` ADD INDEX(`language_id`);
+ALTER TABLE `email` ADD FOREIGN KEY (`language_id`) REFERENCES `language`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;

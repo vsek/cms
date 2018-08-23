@@ -16,6 +16,8 @@
 
 namespace App;
 
+use Nette\ComponentModel\IContainer;
+
 /**
  * Visual paginator control.
  *
@@ -31,11 +33,17 @@ class VisualPaginator extends \Nette\Application\UI\Control
 	/** @persistent */
 	public $page = 1;
 
-        private $templateFile = null;
+    private $templateFile = null;
 
-        public function setTemplateFile($templateFile){
-            $this->templateFile = $templateFile;
-        }
+    public function __construct(IContainer $parent = NULL, $name = NULL)
+    {
+        parent::__construct();
+        $parent->addComponent($this, $name);
+    }
+
+    public function setTemplateFile($templateFile){
+        $this->templateFile = $templateFile;
+    }
         
 	/**
 	 * @return \Nette\Utils\Paginator
