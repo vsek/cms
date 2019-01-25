@@ -15,6 +15,10 @@ parameters:
 			critical:
 			default:
 		js_mobile:
+	ftp:
+		server: 'SERVER'
+		user: 'USER'
+		password: 'PASSWORD'
 
 php:
 	date.timezone: Europe/Prague
@@ -72,6 +76,8 @@ services:
 extensions:
 	translation: App\Translate\DI\TranslationExtension
 	console: Kdyby\Console\DI\ConsoleExtension
+	migrations: Nextras\Migrations\Bridges\NetteDI\MigrationsExtension
+	deployer: App\Component\Deploy\DeployerExtension
 
 latte:
 	macros:
@@ -88,3 +94,59 @@ translation:
 decorator:
 	Symfony\Component\Console\Command\Command:
 		tags: [kdyby.console.command]
+
+migrations:
+    dir: %appDir%/../migrations # migrations base directory
+    driver: mysql               # pgsql or mysql
+    dbal: nette               # nextras, nette, doctrine or dibi
+
+deployer:
+	config:
+		mode: run
+		logFile: %appDir%/log/deployer.log
+		tempDir: %appDir%/temp
+		colors: off
+
+		# User specific variables
+	userdata:
+
+		# Plugins specification (see more in PLUGINS.md)
+	plugins:
+		maintenance:
+			rewrite:
+				- [index.php, index.maintenance]
+
+		# Web sections
+	sections:
+		web:
+			remote: %ftp%
+			local: %wwwDir%
+			testMode: false
+
+			allowdelete: on
+			passiveMode: on
+			preprocess: off
+
+			ignore:
+				- .git*
+				- .idea*
+				- /css/css.css
+				- /js/js.js
+				- /data
+				- /images/preview/*
+				- /images/upload/*
+				- /nbproject
+				- /temp/*
+				- /log/*
+				- /composer.lock
+				- /composer.json
+				- /deploy.php
+				- /.gitignore
+				- /README.md
+
+			before:
+
+			after:
+
+			purge:
+				- temp/cache

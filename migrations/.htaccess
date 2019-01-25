@@ -1,0 +1,6 @@
+<If "%{REMOTE_ADDR} != '127.0.0.1'">
+    AuthType Basic
+    AuthName "Password Protected Area"
+    AuthUserFile /home/www/farmaufrantisky.cz/www/test.farmaufrantisky.cz/migrations/.htpasswd
+    Require valid-user
+</IF>

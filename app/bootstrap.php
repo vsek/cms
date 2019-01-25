@@ -11,7 +11,6 @@ $configurator->setTempDirectory(__DIR__ . '/../temp');
 
 $configurator->createRobotLoader()
 	->addDirectory(__DIR__)
-        ->addDirectory(dirname(__FILE__) . '/../libs')
         ->addDirectory(dirname(__FILE__) . '/../vendor/vsek')
 	->register();
 

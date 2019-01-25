@@ -39,7 +39,10 @@
                 "vsek/script-loader": "~1",
                 "vsek/page": "~1",
                 "vsek/language": "~1",
-                "vsek/translate": "~1"
+                "vsek/translate": "~1",
+		"nextras/migrations": "^3.1@RC",
+		"minetro/deployer-extension": "^2.0",
+		"mobiledetect/mobiledetectlib": "^2.8"
 	},
 	"require-dev": {
 		"nette/tester": "~1"
